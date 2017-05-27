@@ -1,0 +1,16 @@
+<h1>Информация о пользователе</h1>
+
+<ul class="user">
+  <% @user.each do |user| %>
+    <li>
+      Имя: <%=link_to user.name, user_path %>
+      Email: <%=link_to user.email, user_path %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="button">
+	<button type="button class="btn btn-basic">
+		<%=link_to "Назад", users_path%>
+	</button>
+</div>

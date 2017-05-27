@@ -1,0 +1,13 @@
+<h1>Информация об учебной группе</h1>
+
+<ul>
+	<li>ID: <%=@group.id%></li> 
+	<li>Название группы: <%=@group.name%> </li>
+	<li>Название курса: <%=@group.course.name%>  </li>	
+</ul>
+
+<div class="buttons">
+<button type="button" class="btn btn-basic">
+	<%=link_to "Назад", groups_path%>
+</button>
+</div>

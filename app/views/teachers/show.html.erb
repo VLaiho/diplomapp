@@ -1,0 +1,15 @@
+<h1>Информация о преподавателе</h1>
+
+<ul>
+	
+	<li>ID: <%=@teacher.id%> </li>  
+	<li>Имя: <%=@teacher.name%> </li>
+	<li>Курс: <%=@teacher.course.name%></li>
+
+</ul>
+
+<div class="button">
+<button type="button" class="btn btn-basic">
+	<%=link_to "Назад", teachers_path%>
+</button>
+</div>

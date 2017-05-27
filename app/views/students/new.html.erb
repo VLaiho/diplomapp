@@ -1,0 +1,15 @@
+<h1>Создать нового студента</h1>
+
+<%= form_for Student.new do |f| %>
+
+	<p> Имя <br/> <%= f.text_field :name %> </p>
+	<p> Дата рождения <br/> <%= f.text_field :birth_date %> </p>
+	<p> Учебное заведение <br/> <%= f.text_field :school_name %> </p>
+	<p> Адрес <br/> <%= f.text_field :address %> </p>
+	<p> Паспортные данные <br/> <%= f.text_field :passport_data %> </p>
+	<p> Номер телефона <br/> <%= f.text_field :phone_number %> </p>
+	<p> Учебная группа <br/> <%= f.text_field :group_id %> </p>
+
+	<p> <%= f.submit "Cоздать" %> </p>
+
+<% end %>

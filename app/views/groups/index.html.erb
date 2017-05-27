@@ -1,0 +1,61 @@
+<% if user_signed_in? || admin_signed_in? %>
+<h1>Учебные группы</h1>
+
+<div class="buttons">
+	<button type="button" class="btn btn-default">
+		<h2><%=link_to "Добавить", "groups/new" %></h2>
+	</button>
+</div>
+<% end %>
+
+<% if @groups.empty? %>
+	<b>Нет учебных групп</b>
+<% else %>
+
+<% if user_signed_in? || admin_signed_in? %>
+	<table class="table table-striped">
+			<tr>
+				<th></th>
+				<th>Учебная группа</th>
+				<th>Учебный курс</th>
+				<th>Студент группы</th>
+				<th></th>
+				<th></th>
+			</tr>
+		<% @groups.each do |g| %>
+			<tr>
+				<td><%=link_to g.id, group_path(g)%></td>
+				<td><%=link_to g.name, group_path(g)%></td>
+				<td><%=link_to g.course.name, course_path(g)%></td>
+				<% g.students.each do |student| %>
+					<td><%=link_to student.name, student_path(g)%></td>
+				<% end %>
+				<td><%=link_to edit_group_path(g) do%>	
+						<i class="glyphicon glyphicon-edit"></i>		
+					<% end %>
+				</td>
+				<td><%=link_to g, method: :delete, data: {confirm: "Точно удалить?"} do%>
+						<i class="glyphicon glyphicon-remove"></i>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+<% end %>
+<% end %>
+	</table>
+	
+</br>
+<% if user_signed_in? || admin_signed_in? %>
+<div class="buttons">
+<button type="button" class="btn btn-basic">
+	<%= link_to "Курсы", courses_path %> &nbsp
+</button>  
+<button type="button" class="btn btn-basic">
+	<%= link_to "Преподаватели", teachers_path %> &nbsp
+</button>
+<button type="button" class="btn btn-basic">
+	<%= link_to "Студенты", students_path %>
+</button>
+</div>
+<% end %>
+

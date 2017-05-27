@@ -1,0 +1,10 @@
+<h1>Создать новую группу</h1>
+
+<%= form_for Group.new do |f| %>
+
+	<p> Название группы <br/> <%= f.text_field :name %> </p>
+	<p> Учебный курс <br/> <%= f.text_field :course_id %> </p>
+
+	<p> <%= f.submit "Cоздать" %> </p>
+
+<% end %>

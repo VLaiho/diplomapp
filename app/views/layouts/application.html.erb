@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diplomapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class = "navbar navbar-text">
+            <% if admin_signed_in? %>
+              <button type="button_auth" class ="btn btn-info btn-lg"><%=link_to "Регистрация", new_user_registration_path%>
+              </button>
+            <% end %>
+
+            <% if session[:user_id].nil? %>
+             <button type="button_auth" class ="btn btn-info btn-lg"><%=link_to "Вход", new_user_session_path%>
+            </button>
+            <% end %>
+
+            <%if user_signed_in?%>
+              <button type="button_auth" class ="btn btn-info btn-lg"><%=link_to "Выйти", destroy_user_session_path, method: :delete%>
+              </button>
+            <%end%>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+  	     <p class="notice"><%=notice%></p>
+  	     <p class="alert"><%=alert%></p>
+    <%= yield %>
+  </body>
+</html>

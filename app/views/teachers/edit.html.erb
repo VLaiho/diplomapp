@@ -1,0 +1,10 @@
+<h1>Редактирование преподавателя</h1>
+
+<%= form_for @teacher do |f| %>
+
+	<p> Имя <br/> <%= f.text_field :name %> </p>
+	<p> Учебный курс <br/> <%= f.text_field :course_id %> </p>
+	
+	<p> <%= f.submit "Применить изменения" %> </p>
+
+<% end %>
