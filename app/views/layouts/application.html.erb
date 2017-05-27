@@ -20,7 +20,7 @@
             </button>
             <% end %>
 
-            <%if user_signed_in?%>
+            <%if user_signed_in? ||admin_signed_in?%>
               <button type="button_auth" class ="btn btn-info btn-lg"><%=link_to "Выйти", destroy_user_session_path, method: :delete%>
               </button>
             <%end%>

@@ -3,12 +3,11 @@
 
 <div class="button">
 	<button type="button" class="btn btn-default">
-		<h2><%=link_to "Добавить", "courses/new" %></h2>
+		<h5><%=link_to "Добавить", "courses/new" %></h5>
 	</button>
 </div>
 
 <% end %>
-
 <% if @courses.empty? %>
 	<b>Нет курсов</b>
 <% else %>
@@ -30,6 +29,7 @@
 			<td><%=link_to c.name, course_path(c)%></td>
 			<td><%=link_to c.group.name, group_path(c)%></td>
 			<td><%=link_to c.teacher.name, teacher_path(c)%></td>
+			<% if admin_signed_in? %>
 			<td><%=link_to edit_course_path(c) do%>	
 					<i class="glyphicon glyphicon-edit"></i>		
 				<% end %>
@@ -38,6 +38,7 @@
 					<i class="glyphicon glyphicon-remove"></i>
 				<% end %>
 			</td>
+			<% end %>
 		</tr>
 					<% end %>
 	<% end %>

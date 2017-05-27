@@ -2,9 +2,37 @@
 
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, users_path %>
-      <%= link_to user.email, users_path %>
-    </li>
+    <table class="table-striped">
+    	<tr>
+    		<th>ID</th>
+    		<th>Email</th>
+    	</tr>
+    	<tr>
+    		<td><%= link_to user.id, users_path%></td>
+      		<td><%= link_to user.email, users_path %></td>
+    	</tr>
+    </table>
   <% end %>
 </ul>
+
+</br>
+<% if admin_signed_in? %>
+<div class = button>
+	<button type="button" class= "btn btn-basic">
+		<%=link_to "Преподаватели" , teachers_path%> 
+		&nbsp
+	</button>
+	
+	<button type="button" class= "btn btn-basic">
+		<%=link_to "Студенты", students_path%> &nbsp
+	</button>
+
+	<button type="button" class= "btn btn-basic">
+		<%=link_to "Группы", groups_path%>
+	</button>
+
+	<button type="button" class= "btn btn-basic">
+		<%=link_to "Курсы", courses_path%>
+	</button>
+</div>
+<% end %>

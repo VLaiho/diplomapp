@@ -30,6 +30,7 @@
 				<% g.students.each do |student| %>
 					<td><%=link_to student.name, student_path(g)%></td>
 				<% end %>
+				<% if admin_signed_in? %>
 				<td><%=link_to edit_group_path(g) do%>	
 						<i class="glyphicon glyphicon-edit"></i>		
 					<% end %>
@@ -38,6 +39,7 @@
 						<i class="glyphicon glyphicon-remove"></i>
 					<% end %>
 				</td>
+				<% end %>
 			</tr>
 		<% end %>
 <% end %>

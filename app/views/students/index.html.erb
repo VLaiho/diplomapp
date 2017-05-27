@@ -37,6 +37,7 @@
 			<td><%=link_to s.passport_data, student_path(s)%></td>
 			<td><%=link_to s.phone_number, student_path(s)%></td>
 			<td><%=link_to s.group.name, group_path(s)%></td>
+			<% if admin_signed_in? %>
 			<td><%=link_to edit_student_path(s) do%>	
 					<i class="glyphicon glyphicon-edit"></i>		
 				<% end %>
@@ -45,6 +46,7 @@
 					<i class="glyphicon glyphicon-remove"></i>
 				<% end %>
 			</td>
+			<% end %>
 		</tr>
 	<% end %>
 	<% end %>

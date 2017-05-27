@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-	#before_action :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
+	before_action :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
 	def index
 		@courses = Course.all
 	end
@@ -50,8 +50,8 @@ class CoursesController < ApplicationController
 		params.require(:course).permit(:name, :group_id)
 	end
 
-	#def check_if_admin
-		#render file: "public/403.html", status: 403 unless params[:admin]
-	#end
+	def check_if_admin
+		render file: "public/403.html", status: 403 unless params[:author]
+	end
 
 end
