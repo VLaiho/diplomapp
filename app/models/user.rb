@@ -7,7 +7,7 @@ class User < ApplicationRecord
   ROLES = %i[admin author]
 
   def roles=(roles)
-  	roles= [*roles].map { |r| r.to_sym }
+  	#roles= [*roles].map { |r| r.to_sym }
   	self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
   end
 
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def has_role?(role)
-  	roles.include?(role)
+  	roles.include?(role.to_s)
   end
 
 
