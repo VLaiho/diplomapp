@@ -1,11 +1,13 @@
 <% if user_signed_in? || admin_signed_in? %>
 	<h1>Cтуденты</h1> 
 
+<% if admin_signed_in? %>
 	<div class="buttons">
 		<button type="button" class="btn btn-default">
-			<h2><%=link_to "Добавить", "students/new" %></h2>
+			<h5><%=link_to "Добавить", "students/new" %></h5>
 		</button>
 	</div>
+<% end %>
 <% end %>
 
 <% if @students.empty? %>

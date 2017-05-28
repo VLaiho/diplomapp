@@ -1,11 +1,13 @@
 <% if user_signed_in? || admin_signed_in? %>
 <h1>Учебные группы</h1>
 
-<div class="buttons">
-	<button type="button" class="btn btn-default">
-		<h2><%=link_to "Добавить", "groups/new" %></h2>
-	</button>
-</div>
+<% if admin_signed_in? %>
+	<div class="buttons">
+		<button type="button" class="btn btn-default">
+			<h5><%=link_to "Добавить", "groups/new" %></h5>
+		</button>
+	</div>
+<% end %>
 <% end %>
 
 <% if @groups.empty? %>

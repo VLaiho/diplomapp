@@ -1,11 +1,13 @@
 <% if user_signed_in? || admin_signed_in? %>
-<h1>Курсы</h1>
+<h1>Курсы дополнительного образования</h1>
 
-<div class="button">
-	<button type="button" class="btn btn-default">
-		<h5><%=link_to "Добавить", "courses/new" %></h5>
-	</button>
-</div>
+<% if admin_signed_in? %>
+	<div class="button">
+		<button type="button" class="btn btn-default">
+			<h5><%=link_to "Добавить", "courses/new" %></h5>
+		</button>
+	</div>
+<% end %>
 
 <% end %>
 <% if @courses.empty? %>
