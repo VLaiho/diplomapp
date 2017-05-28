@@ -1,1 +1,2 @@
-Прописал ability.rb, но author может редактировать и удалять. 
+It's a database of education courses with UI.
+Quite simple. For the first projects suits.
