@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170604192308) do
+ActiveRecord::Schema.define(version: 20170521094202) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20170604192308) do
     t.text     "school_name"
     t.text     "address"
     t.text     "passport_data"
-    t.text     "phone_number",  limit: 10
+    t.text     "phone_number"
     t.integer  "group_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["group_id"], name: "index_students_on_group_id"
   end
 

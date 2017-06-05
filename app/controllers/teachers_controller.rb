@@ -50,8 +50,8 @@ class TeachersController < ApplicationController
 		params.require(:teacher).permit(:name, :course_id)
 	end
 
-	def check_if_admin
-		render file: "public/403.html", status: 403 unless current_user.try(:admin?)
-	end
+	#def check_if_admin
+	#	render file: "public/403.html", status: 403 unless current_user.try(:admin?)
+	#end
 
 end

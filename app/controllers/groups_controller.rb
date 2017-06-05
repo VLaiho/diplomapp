@@ -50,8 +50,8 @@ class GroupsController < ApplicationController
 		params.require(:group).permit(:name, :course_id)
 	end
 
-	def check_if_admin
-		render file: "public/403.html", status: 403 unless params[:admin]
-	end
+	#def check_if_admin
+	#	render file: "public/403.html", status: 403 unless params[:admin]
+	#end
 
 end
