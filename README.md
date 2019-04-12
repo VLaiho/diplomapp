@@ -1,2 +1,2 @@
-It's a database of education courses with UI.
-Quite simple. For the first projects suits.
+Попытка реализации системы учёта курсов дополнительного образования.
+Очень сырой графический интерфейс.
