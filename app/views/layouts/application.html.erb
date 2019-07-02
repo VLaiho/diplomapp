@@ -9,13 +9,14 @@
   </head>
 
   <body>
+
     <div class = "navbar navbar-text">
             <% if admin_signed_in? %>
               <button type="button_auth" class ="btn btn-info btn-lg"><%=link_to "Регистрация", new_user_registration_path%>
               </button>
             <% end %>
 
-            <% if session[:user_id].nil? %>
+            <% if session[:user_id].nil? #&& if user_signed_in? :style => "display: none" %>
              <button type="button_auth" class ="btn btn-info btn-lg"><%=link_to "Вход", new_user_session_path%>
             </button>
             <% end %>
