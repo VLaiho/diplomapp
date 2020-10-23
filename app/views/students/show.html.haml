@@ -1,0 +1,21 @@
+%h1 Информация о студенте
+%ul
+  %li
+    ID: #{@student.id}
+  %li
+    Имя: #{@student.name}
+  %li
+    Дата рождения: #{@student.birth_date}
+  %li
+    Учебное заведение: #{@student.school_name}
+  %li
+    Адрес: #{@student.address}
+  %li
+    Паспортные данные: #{@student.passport_data}
+  %li
+    Номер телефона: #{@student.phone_number}
+  %li
+    Учебная группа: #{@student.group.name}
+.buttons
+  %button.btn.btn-basic{:type => "button"}
+    = link_to "Назад", students_path

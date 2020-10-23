@@ -1,0 +1,49 @@
+- if user_signed_in? || admin_signed_in?
+  %h1 Cтуденты
+  - if admin_signed_in?
+    .buttons
+      %button.btn.btn-default{:type => "button"}
+        %h5= link_to "Добавить", "students/new"
+- if @students.empty?
+  %b Нет студентов
+- else
+  - if user_signed_in? || admin_signed_in?
+    %table.table.table-striped
+      %tr
+        %th
+        %th Имя
+        %th Дата рождения
+        %th Название учебного заведения
+        %th Адрес
+        %th Паспортные данные
+        %th Номер телефона
+        %th Учебная группа
+        %th
+        %th
+      - @students.each do |s|
+        %tr
+          %td= link_to s.id, student_path(s)
+          %td= link_to s.name, student_path(s)
+          %td= link_to s.birth_date, student_path(s)
+          %td= link_to s.school_name, student_path(s)
+          %td= link_to s.address, student_path(s)
+          %td= link_to s.passport_data, student_path(s)
+          %td= link_to s.phone_number, student_path(s)
+          %td= link_to s.group.name, group_path(s)
+          - if admin_signed_in?
+            %td
+              = link_to edit_student_path(s) do
+                %i.glyphicon.glyphicon-edit
+            %td
+              = link_to s, method: :delete, data: {confirm: "Точно удалить?"} do
+                %i.glyphicon.glyphicon-remove
+    - if user_signed_in? || admin_signed_in?
+      .buttons
+        %button.btn.btn-basic{:type => "button"}
+          = link_to "Преподаватели" , teachers_path
+          \&amp;nbsp
+        %button.btn.btn-basic{:type => "button"}
+          = link_to "Курсы", courses_path
+          \&amp;nbsp
+        %button.btn.btn-basic{:type => "button"}
+          = link_to "Группы",   groups_path
