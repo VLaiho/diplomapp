@@ -1,0 +1,32 @@
+%h1 Создать нового студента
+= form_for Student.new do |f|
+  %p
+    Имя
+    %br/
+    = f.text_field :name
+  %p
+    Дата рождения
+    %br/
+    = f.text_field :birth_date
+  %p
+    Учебное заведение
+    %br/
+    = f.text_field :school_name
+  %p
+    Адрес
+    %br/
+    = f.text_field :address
+  %p
+    Паспортные данные
+    %br/
+    = f.text_field :passport_data
+  %p
+    Номер телефона
+    %br/
+    = f.text_field :phone_number
+  %p
+    Учебная группа
+    %br/
+    = f.text_field :group_id
+  %p
+    = f.submit "Cоздать"
